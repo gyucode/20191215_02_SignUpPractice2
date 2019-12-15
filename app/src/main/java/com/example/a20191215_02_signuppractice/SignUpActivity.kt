@@ -13,6 +13,8 @@ import java.util.*
 
 //SignUpActivity로 변경
 class SignUpActivity : BaseActivity() {
+    
+    var selectedBirthDay:Calendar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,8 +34,23 @@ class SignUpActivity : BaseActivity() {
                 val selectedDateStr = "${year} / ${month}/ ${dayOfMonth}"
                 birthDayTxt.text = selectedDateStr
 
-//                자바에서는 월을 0 ~ 11 월로 사용. 생각하는 것보다 1작은 숫자를 월로 넣어줘야함
+                selectedBirthDay?.let{
+                    Log.d("생년월일선택","이미 선택된 값을 수정 - 다시선택")
 
+                }.let {
+                    Log.d("생년월일선택","선택된 값이 새로 생김 - 처음선택")
+                    selectedBirthDay = Calendar.getInstance()
+//                    Q. selectedBirthDay에 담긴 날짜는 몇월 몇일? A. 인스턴스 생성날짜.(12/15)
+//                    이 담긴 날짜를 선택한 년/월/일로 대입.
+                }
+
+                selectedBirthDay?.set(Calendar.YEAR, year)
+                selectedBirthDay?.set(Calendar.MONTH, month)
+                selectedBirthDay?.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+
+                selectedBirthDay?.set(year, month, dayOfMonth)
+
+//                자바에서는 월을 0 ~ 11 월로 사용. 생각하는 것보다 1작은 숫자를 월로 넣어줘야함
             },2018,Calendar.DECEMBER,15)
 
             datePickerDialog.show()
