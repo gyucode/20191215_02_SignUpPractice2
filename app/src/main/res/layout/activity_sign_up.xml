@@ -141,6 +141,13 @@
                 android:layout_height="wrap_content"
                 android:text="직업"/>
 
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/jobs"
+                android:spinnerMode="dialog"
+                android:layout_marginTop="10dp"/>
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
