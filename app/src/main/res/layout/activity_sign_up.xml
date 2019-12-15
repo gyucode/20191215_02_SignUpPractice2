@@ -137,6 +137,19 @@
                     android:hint="태어난 시간"/>
 
             </LinearLayout>
+            <TextView
+                android:textSize="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="좋아하는 술"/>
+
+            <Spinner
+                android:id="@+id/alcoholSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dropdown"
+                android:layout_marginTop="10dp"/>
 
             <TextView
                 android:textSize="16dp"
