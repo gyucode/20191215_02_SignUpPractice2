@@ -146,6 +146,7 @@
                 android:text="직업"/>
 
             <Spinner
+                android:id="@+id/jobSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:entries="@array/jobs"
