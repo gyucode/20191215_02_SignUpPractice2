@@ -32,6 +32,14 @@ class SignUpActivity : BaseActivity() {
         birthTimeTxt.setOnClickListener {
             val timePickerDialog = TimePickerDialog(mContext, TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
 
+//                시간을 캘린더에 저장
+                selectedBirthDay?.set(Calendar.HOUR_OF_DAY, hourOfDay)
+                selectedBirthDay?.set(Calendar.MINUTE, minute )
+
+//                캘린더에 저장된 값을 SimpleDateFormat을 이용해 화면 출력
+                val sdf = SimpleDateFormat("a h:mm")
+                birthTimeTxt.text = sdf.format(selectedBirthDay?.time)
+
             }, 20, 5, true)
             timePickerDialog.show()
         }
@@ -61,7 +69,7 @@ class SignUpActivity : BaseActivity() {
 
 //                저장된 생년월일을 simpleDateFormat을 이용해 출력
 
-                val sdf = SimpleDateFormat("yyyy년 M월 d일")
+                val sdf = SimpleDateFormat("yyyy년 M월 d일 (E)")
                 birthDayTxt.text = sdf.format(selectedBirthDay?.time)
 
 //                자바에서는 월을 0 ~ 11 월로 사용. 생각하는 것보다 1작은 숫자를 월로 넣어줘야함
